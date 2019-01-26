@@ -16,7 +16,7 @@ TagManager:
   - 
   - PostProcessing
   - Floor
-  - 
+  - 2D
   - 
   - 
   - 
@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Front
+    uniqueID: 787742651
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

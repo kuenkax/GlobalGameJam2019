@@ -26,10 +26,13 @@ public class EnemiesGenerator : MonoBehaviour
             ultima = Time.time;
         }
     }
+
+    public float start_y = 2;
+
     void Generar()
     {
         Posicion();
-        posicion.y += 2;
+        posicion.y += start_y;
         int eType = Random.Range(0, prefabsEnemigo.Count - 1);
         Instantiate(prefabsEnemigo[eType], posicion, Quaternion.identity);
     }
