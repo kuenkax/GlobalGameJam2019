@@ -41,14 +41,29 @@ public class Player : MonoBehaviour {
         var wpn_rot = Quaternion.Euler( 0f, 0f, -r );
         sr_wpn.transform.localRotation = wpn_rot;
 
-        if ( Input.GetMouseButtonDown(0) ) {
-            var aim_dir = Quaternion.Euler(0, r, 0 ) * Vector3.right;
+        var time_between_shots = 0.1f; // TODO: put this in the weapon prefab
 
-            Debug.DrawRay( sr_wpn.transform.position, aim_dir * 1, Color.cyan , 10f );
-            var bullet = Instantiate( Bullet, sr_wpn.transform.position, Quaternion.identity );
-            bullet.transform.LookAt( sr_wpn.transform.position + aim_dir );
+        var time_since_last_shot = Time.realtimeSinceStartup - last_shot_time;
+        if ( time_since_last_shot > time_between_shots ) {
+            if ( Input.GetMouseButton(0) ) {
+                cam_shake.ShakeIt();
+                last_shot_time = Time.realtimeSinceStartup;
+
+                var aim_dir = Quaternion.Euler(0, r, 0 ) * Vector3.right;
+
+                //Debug.DrawRay( sr_wpn.transform.position, aim_dir * 1, Color.cyan , 10f );
+                var bullet = Instantiate( Bullet, sr_wpn.transform.position, Quaternion.identity );
+                bullet.transform.LookAt( sr_wpn.transform.position + aim_dir );
+            }
+        }
+
+        if ( Input.GetMouseButtonUp(0) ) {
+            cam_shake.shaking = false;
         }
     }
+
+    public CameraShake cam_shake;
+    public float last_shot_time = 0;
 
 
     private void FixedUpdate() {
