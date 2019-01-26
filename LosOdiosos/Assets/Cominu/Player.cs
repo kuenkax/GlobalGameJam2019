@@ -15,6 +15,13 @@ public class Player : MonoBehaviour {
 
     private void OnEnable() {
         rbody = GetComponent<Rigidbody>();
+        GetComponent<Health>().OnDeath = EstoyMuerto;
+    }
+
+
+    void EstoyMuerto() {
+        Debug.Log("Mierda");
+        Debug.Break();
     }
 
     public float r = 100f;
@@ -74,11 +81,14 @@ public class Player : MonoBehaviour {
         rbody.AddForce( mov_dir * mov_force );
     }
 
+
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == "Enemy")
-        {
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(-Vector3.forward * 100);
+        if (collision.transform.tag == "Enemy")
+        {  
+            var damage = 10; // FIXME: take this from the enemy component
+            GetComponent<Health>().SetDamage(damage);
+            collision.gameObject.GetComponent<Rigidbody>().AddForce( -collision.transform.forward * 5000);
         }
     }
 }
