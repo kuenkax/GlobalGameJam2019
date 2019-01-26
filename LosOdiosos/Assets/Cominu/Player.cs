@@ -32,7 +32,6 @@ public class Player : MonoBehaviour {
             r = -r;
         }
 
-
         wpn_rotator.localRotation = Quaternion.Euler( 0, r, 0 );
 
         while ( r > 360f ) r -= 360f;
@@ -44,8 +43,11 @@ public class Player : MonoBehaviour {
         sr_wpn.transform.localRotation = wpn_rot;
 
         if ( Input.GetMouseButtonDown(0) ) {
+            var aim_dir = Quaternion.Euler(0, r, 0 ) * Vector3.right;
 
-            Instantiate(Bullet, sr_wpn.transform.position, sr_wpn.transform.rotation);
+            Debug.DrawRay( sr_wpn.transform.position, aim_dir * 1, Color.cyan , 10f );
+            var bullet = Instantiate( Bullet, sr_wpn.transform.position, Quaternion.identity );
+            bullet.transform.LookAt( sr_wpn.transform.position + aim_dir );
         }
     }
 
