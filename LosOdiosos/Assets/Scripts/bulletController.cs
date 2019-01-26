@@ -30,8 +30,6 @@ public class bulletController : MonoBehaviour
     public float push_force = 3;
 
     private void OnCollisionEnter(Collision collision ) {
-        Debug.LogFormat("OnCollisionEnter");    
-
         if ( collision.transform.tag == "Enemy" ) {
             var dir = collision.GetContact(0).point - transform.position;
             dir.Normalize();
