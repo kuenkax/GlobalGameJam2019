@@ -24,14 +24,20 @@ public class bulletController : MonoBehaviour
         p += transform.forward * velocity * Time.deltaTime;
         transform.position = p;
 
-        Debug.DrawRay(transform.position,transform.forward * 10, Color.yellow );  
+        //Debug.DrawRay(transform.position,transform.forward * 10, Color.yellow );  
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Enemy")
-        {
-            //other.gameObject.health.(Funcion)(damage);
+    public float push_force = 3;
+
+    private void OnCollisionEnter(Collision collision ) {
+        Debug.LogFormat("OnCollisionEnter");    
+
+        if ( collision.transform.tag == "Enemy" ) {
+            var dir = collision.GetContact(0).point - transform.position;
+            dir.Normalize();
+            collision.gameObject.GetComponent<Rigidbody>().AddForce( dir * push_force );
+            collision.gameObject.GetComponent<Health>().SetDamage(damage);
+            Destroy(gameObject); // self destruct
         }
     }
 }

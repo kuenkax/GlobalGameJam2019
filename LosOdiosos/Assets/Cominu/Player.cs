@@ -6,7 +6,6 @@ public class Player : MonoBehaviour {
     Rigidbody rbody;
     public Vector3 mov_dir; // movement direction
     public float mov_force = 100;
-    public float push_force = 3;
     public SpriteRenderer sr;
     public Transform wpn_rotator;
     
@@ -52,7 +51,7 @@ public class Player : MonoBehaviour {
 
                 var aim_dir = Quaternion.Euler(0, r, 0 ) * Vector3.right;
 
-                Debug.DrawRay( sr_wpn.transform.position, aim_dir * 1, Color.cyan , 10f );
+                //Debug.DrawRay( sr_wpn.transform.position, aim_dir * 1, Color.cyan , 10f );
                 var bullet = Instantiate( Bullet, sr_wpn.transform.position, Quaternion.identity );
                 bullet.transform.LookAt( sr_wpn.transform.position + aim_dir );
             }
@@ -79,13 +78,7 @@ public class Player : MonoBehaviour {
     {
         if(collision.transform.tag == "Enemy")
         {
-            // Calculate Angle Between the collision point and the player
-            Vector3 dir = collision.GetContact(0).point - transform.position;
-            // We then get the opposite (-Vector3) and normalize it
-            dir = dir.normalized;
-            // And finally we add force in the direction of dir and multiply it by force. 
-            // This will push back the player
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(dir * push_force);
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(-Vector3.forward * 100);
         }
     }
 }
