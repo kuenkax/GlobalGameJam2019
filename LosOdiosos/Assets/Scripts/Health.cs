@@ -5,18 +5,17 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int health = 100;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    public System.Action OnDeath;
+
 
     public void SetDamage(int dmg)
     {
         health -= dmg;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            if ( OnDeath != null ) OnDeath();
+            else Destroy(gameObject);
         }
     }
 }

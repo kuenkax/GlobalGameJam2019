@@ -67,7 +67,7 @@ MonoBehaviour:
   damage: 20
   lifeTime: 5
   MiniGun: 0
-  push_force: 3
+  push_force: 3000
 --- !u!65 &3788201755557549661
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7339262822772518887}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.4265655, y: 5.760667, z: 0.26574388}

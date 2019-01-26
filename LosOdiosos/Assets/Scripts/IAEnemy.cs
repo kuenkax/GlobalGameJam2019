@@ -28,6 +28,10 @@ public class IAEnemy : MonoBehaviour
     }
 
 
+    public float minDistToPlayer = 1f;
+
+
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -44,7 +48,8 @@ public class IAEnemy : MonoBehaviour
             }
         }
         dis = Vector3.Distance(transform.position, player.transform.position);
-        if (dis > minimumDistance)
+
+        if (dis > minDistToPlayer)
         {
             nextPos -= transform.position - player.transform.position;
         }

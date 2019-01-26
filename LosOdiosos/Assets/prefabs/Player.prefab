@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 893340257434237079}
   - component: {fileID: 893340257434237077}
   - component: {fileID: 893340257434237076}
+  - component: {fileID: 882095820431037330}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -211,7 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mov_dir: {x: 0, y: 0, z: 0}
-  mov_force: 200
+  mov_force: 300
   sr: {fileID: 893340256977962613}
   wpn_rotator: {fileID: 3850995867599679507}
   sr_wpn: {fileID: 3838013823300838053}
@@ -250,6 +251,19 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &882095820431037330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893340257434237073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196aa7e83604e4d12ae6b46fa0ef8669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1717334049856987549
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4027773028775744181}
   - component: {fileID: 3838013823300838053}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: gfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}

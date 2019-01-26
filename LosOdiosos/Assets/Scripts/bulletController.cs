@@ -29,12 +29,12 @@ public class bulletController : MonoBehaviour
 
     public float push_force = 3;
 
-    private void OnCollisionEnter(Collision collision ) {
-        if ( collision.transform.tag == "Enemy" ) {
-            var dir = collision.GetContact(0).point - transform.position;
+    private void OnTriggerEnter(Collider coll ) {
+        if ( coll.transform.tag == "Enemy" ) {
+            var dir = coll.transform.position - transform.position;
             dir.Normalize();
-            collision.gameObject.GetComponent<Rigidbody>().AddForce( dir * push_force );
-            collision.gameObject.GetComponent<Health>().SetDamage(damage);
+            coll.gameObject.GetComponent<Rigidbody>().AddForce( dir * push_force );
+            coll.gameObject.GetComponent<Health>().SetDamage(damage);
             Destroy(gameObject); // self destruct
         }
     }
