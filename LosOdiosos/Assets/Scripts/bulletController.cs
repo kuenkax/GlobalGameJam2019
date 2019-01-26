@@ -5,7 +5,7 @@ using UnityEngine;
 public class bulletController : MonoBehaviour
 {
     public float velocity;
-    public float damage;
+    public int damage;
     public float lifeTime;
 
     public bool MiniGun;
@@ -32,6 +32,9 @@ public class bulletController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Enemy")
+        {
+            //other.gameObject.health.(Funcion)(damage);
+        }
     }
 }

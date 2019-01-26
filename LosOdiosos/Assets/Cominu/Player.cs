@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
     
     public SpriteRenderer sr_wpn;
 
+    public GameObject Bullet;
+
     private void OnEnable() {
         rbody = GetComponent<Rigidbody>();
     }
@@ -41,7 +43,8 @@ public class Player : MonoBehaviour {
         sr_wpn.transform.localRotation = wpn_rot;
 
         if ( Input.GetMouseButtonDown(0) ) {
-            Debug.Log( "Boom" );
+
+            Instantiate(Bullet, sr_wpn.transform.position, sr_wpn.transform.rotation);
         }
     }
 
