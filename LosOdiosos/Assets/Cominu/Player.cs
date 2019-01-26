@@ -56,6 +56,14 @@ public class Player : MonoBehaviour {
         if ( mov_dir.magnitude > 0.5 ) mov_dir.Normalize();
         rbody.AddForce( mov_dir * mov_force );
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(-Vector3.forward * 100);
+        }
+    }
 }
 
 

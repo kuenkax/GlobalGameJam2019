@@ -8,6 +8,8 @@ public class CameraShake : MonoBehaviour
     Vector3 posicionInicial;
     public float velocidad;
     Vector3 posicion;
+ 
+    public float tiempo;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +26,12 @@ public class CameraShake : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            StartCoroutine(Shake(3));
+            tiempoPasado = 0;
+            StartCoroutine(Shake(tiempo));
         }
     }
 
-    public float tiempoPasado = 0;
+     float tiempoPasado = 0;
 
     public IEnumerator Shake(float time)
     {
@@ -37,7 +40,10 @@ public class CameraShake : MonoBehaviour
             tiempoPasado += Time.deltaTime;
             if(tiempoPasado >= time)
             {
+                transform.position = posicionInicial;
+
                 break;
+
             }
                 if (Mathf.Round(transform.position.x) == Mathf.Round(posicion.x) && Mathf.Round(transform.position.z) == Mathf.Round(posicion.z))
                 {
