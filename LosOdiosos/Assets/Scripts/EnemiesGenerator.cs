@@ -29,6 +29,7 @@ public class EnemiesGenerator : MonoBehaviour
     void Generar()
     {
         Posicion();
+        posicion.y += 2;
         Instantiate(prefabEnemigo, posicion, Quaternion.identity);
     }
     void Posicion()
