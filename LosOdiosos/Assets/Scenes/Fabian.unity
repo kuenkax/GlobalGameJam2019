@@ -280,6 +280,7 @@ MonoBehaviour:
     type: 3}
   "tama\xF1o": 40
   home: 5
+  enemyTime: 1
 --- !u!1 &1262609341
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419e7555b0ff1c7419b94931e76b319f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDuration: 3
+  timeDuration: 120
 --- !u!1 &1865834536
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +341,7 @@ GameObject:
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
