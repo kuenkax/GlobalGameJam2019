@@ -39,6 +39,10 @@ public class Player : MonoBehaviour {
 
         var wpn_rot = Quaternion.Euler( 0f, 0f, -r );
         sr_wpn.transform.localRotation = wpn_rot;
+
+        if ( Input.GetMouseButtonDown(0) ) {
+            Debug.Log( "Boom" );
+        }
     }
 
 
@@ -46,6 +50,7 @@ public class Player : MonoBehaviour {
         var old_mov_dir = mov_dir;
         mov_dir.x = Input.GetAxis("Horizontal");
         mov_dir.z = Input.GetAxis("Vertical");
+        if ( mov_dir.magnitude > 0.5 ) mov_dir.Normalize();
         rbody.AddForce( mov_dir * mov_force );
     }
 }
