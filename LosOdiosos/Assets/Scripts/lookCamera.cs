@@ -20,10 +20,5 @@ public class lookCamera : MonoBehaviour
         
     }
 
-    void RotationEngine() {
-        Vector3 cameraVector = Camera.main.transform.position - transform.position;
-        float newYangle = Mathf.Atan2(cameraVector.z, cameraVector.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, -1 * newYangle, 0);
-
-    }
+    
 }
