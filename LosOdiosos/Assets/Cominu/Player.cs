@@ -35,7 +35,10 @@ public class Player : MonoBehaviour {
         while ( r > 360f ) r -= 360f;
         while ( r < 0f   ) r += 360f;
 
-        sr_wpn.flipX = !( r < 90f || r > 270 );
+        sr_wpn.flipY = !( r < 90f || r > 270 );
+
+        var wpn_rot = Quaternion.Euler( 0f, 0f, -r );
+        sr_wpn.transform.localRotation = wpn_rot;
     }
 
 
