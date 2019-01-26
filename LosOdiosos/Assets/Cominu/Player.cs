@@ -43,8 +43,10 @@ public class Player : MonoBehaviour {
 
         if ( Input.GetMouseButtonDown(0) ) {
             var aim_dir = Quaternion.Euler(0, r, 0 ) * Vector3.right;
-            Debug.DrawRay( sr_wpn.transform.position, aim_dir * 10, Color.cyan , 10f );
-            Instantiate(Bullet, sr_wpn.transform.position, Quaternion.Euler( aim_dir ) );
+
+            Debug.DrawRay( sr_wpn.transform.position, aim_dir * 1, Color.cyan , 10f );
+            var bullet = Instantiate( Bullet, sr_wpn.transform.position, Quaternion.identity );
+            bullet.transform.LookAt( sr_wpn.transform.position + aim_dir );
         }
     }
 
