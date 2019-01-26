@@ -1,0 +1,53 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class IAEnemy : MonoBehaviour
+{
+    GameObject player;
+
+    private static List<GameObject> allEnemies = new List<GameObject>();
+    // Movement speed in units/sec.
+    public float mov_force = 100;
+
+    public float minimumDistance = 1f;
+
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
+
+    private void OnEnable()
+    {
+        allEnemies.Add(gameObject);
+    }
+
+    private void OnDisable()
+    {
+        allEnemies.Remove(gameObject);
+    }
+
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        Vector3 nextPos = Vector3.zero;
+        float dis;
+        int pos = allEnemies.IndexOf(gameObject) + 1;
+        for(int i = pos; i < allEnemies.Count; i++)
+        {
+            //dis = transform.position - allEnemies[i].transform.position;
+            dis = Vector3.Distance(transform.position, allEnemies[i].transform.position);
+            if (dis <= minimumDistance)
+            {
+                nextPos += transform.position - allEnemies[i].transform.position;
+            }
+        }
+        dis = Vector3.Distance(transform.position, player.transform.position);
+        if (dis > minimumDistance)
+        {
+            nextPos -= transform.position - player.transform.position;
+        }
+        GetComponent<Rigidbody>().AddForce(nextPos * mov_force);
+    }
+}

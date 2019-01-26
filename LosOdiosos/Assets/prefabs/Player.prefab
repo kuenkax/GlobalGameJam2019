@@ -141,8 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mov_dir: {x: 0, y: 0, z: 0}
-  mov_force: 200
-  push_force: 3
+  mov_force: 300
   sr: {fileID: 893340256977962613}
   wpn_rotator: {fileID: 3850995867599679507}
   sr_wpn: {fileID: 3838013823300838053}
