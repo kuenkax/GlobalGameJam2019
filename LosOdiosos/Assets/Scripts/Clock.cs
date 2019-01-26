@@ -26,4 +26,5 @@ public class Clock : MonoBehaviour
             transform.rotation = Quaternion.identity;
         }
     }
+   
 }
