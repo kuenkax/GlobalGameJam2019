@@ -6,13 +6,16 @@ public class Player : MonoBehaviour {
     Rigidbody rbody;
     public Vector3 mov_dir; // movement direction
     public float mov_force = 100;
-
+    public SpriteRenderer sr;
 
     private void OnEnable() {
         rbody = GetComponent<Rigidbody>();
     }
 
     private void Update() {
+        // flip the character if aiming left/right
+        sr.flipX = PlayerCamera.I.aim.transform.position.x < rbody.position.x;
+
     }
 
 
@@ -20,12 +23,6 @@ public class Player : MonoBehaviour {
         var old_mov_dir = mov_dir;
         mov_dir.x = Input.GetAxis("Horizontal");
         mov_dir.z = Input.GetAxis("Vertical");
-        /*
-        var dot = Vector3.Dot( old_mov_dir, mov_dir );
-        if ( dot < 0.5) {
-            rbody.velocity = Vector3.zero; // change of direction: stop it!
-        }*/
-
         rbody.AddForce( mov_dir * mov_force );
     }
 }

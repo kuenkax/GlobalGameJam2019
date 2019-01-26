@@ -4,8 +4,9 @@ using UnityEngine;
 
 
 [ExecuteInEditMode]
-public class PlayerCamera : MonoBehaviour
-{
+public class PlayerCamera : MonoBehaviour {
+    public static PlayerCamera I;
+
     public Transform target;
     public Transform cam;
     public Camera _cam;
@@ -17,6 +18,7 @@ public class PlayerCamera : MonoBehaviour
     public float pos_lerp_speed = 1f;
 
     private void OnEnable() {
+        I = this;
         _cam = GetComponentInChildren<Camera>();
     }
 
