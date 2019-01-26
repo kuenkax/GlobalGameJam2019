@@ -24,7 +24,7 @@ public class IAEnemy1 : MonoBehaviour
         startTime = Time.time;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 nextPos = new Vector3(player.transform.position.x - minimumDistance
             , player.transform.position.y, player.transform.position.z - minimumDistance);

@@ -7,6 +7,7 @@ public class bulletController : MonoBehaviour
     public float velocity;
     public int damage;
     public float lifeTime;
+    public float pushForce;
 
     public bool MiniGun;
 
@@ -27,11 +28,18 @@ public class bulletController : MonoBehaviour
         Debug.DrawRay(transform.position,transform.forward * 10, Color.yellow );  
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "Enemy")
+        if (other.transform.tag == "Enemy")
         {
-            //other.gameObject.health.(Funcion)(damage);
+            Vector3 dir = other.GetContact(0).point - transform.position;
+            // We then get the opposite (-Vector3) and normalize it
+            dir = -dir.normalized;
+            // And finally we add force in the direction of dir and multiply it by force. 
+            // This will push back the player
+            other.gameObject.GetComponent<Rigidbody>().AddForce(dir * pushForce);
+            other.gameObject.GetComponent<Health>().SetDamage(damage);
+            Destroy(gameObject);
         }
     }
 }
