@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
     
     public SpriteRenderer sr_wpn;
 
+    public GameObject Bullet;
+
     private void OnEnable() {
         rbody = GetComponent<Rigidbody>();
     }
@@ -35,7 +37,15 @@ public class Player : MonoBehaviour {
         while ( r > 360f ) r -= 360f;
         while ( r < 0f   ) r += 360f;
 
-        sr_wpn.flipX = !( r < 90f || r > 270 );
+        sr_wpn.flipY = !( r < 90f || r > 270 );
+
+        var wpn_rot = Quaternion.Euler( 0f, 0f, -r );
+        sr_wpn.transform.localRotation = wpn_rot;
+
+        if ( Input.GetMouseButtonDown(0) ) {
+
+            Instantiate(Bullet, sr_wpn.transform.position, sr_wpn.transform.rotation);
+        }
     }
 
 
@@ -43,6 +53,7 @@ public class Player : MonoBehaviour {
         var old_mov_dir = mov_dir;
         mov_dir.x = Input.GetAxis("Horizontal");
         mov_dir.z = Input.GetAxis("Vertical");
+        if ( mov_dir.magnitude > 0.5 ) mov_dir.Normalize();
         rbody.AddForce( mov_dir * mov_force );
     }
 
