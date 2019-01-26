@@ -7,7 +7,6 @@ public class bulletController : MonoBehaviour
     public float velocity;
     public int damage;
     public float lifeTime;
-    public float pushForce;
 
     public bool MiniGun;
 
@@ -25,14 +24,12 @@ public class bulletController : MonoBehaviour
         p += transform.forward * velocity * Time.deltaTime;
         transform.position = p;
 
-        //Debug.DrawRay(transform.position,transform.forward * 10, Color.yellow );
+        //Debug.DrawRay(transform.position,transform.forward * 10, Color.yellow );  
     }
 
     public float push_force = 3;
 
     private void OnCollisionEnter(Collision collision ) {
-        Debug.LogFormat("OnCollisionEnter");
-
         if ( collision.transform.tag == "Enemy" ) {
             var dir = collision.GetContact(0).point - transform.position;
             dir.Normalize();
