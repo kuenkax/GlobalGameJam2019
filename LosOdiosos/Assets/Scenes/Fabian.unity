@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
+  - component: {fileID: 534669907}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -276,11 +277,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f0787dbe7dbed4ea7cd7042de40400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabEnemigo: {fileID: 3549528604964954851, guid: 94ae08d6cb66e644193994840a0f19f5,
+  prefabEnemigo: {fileID: 6140856280052420354, guid: 945746fc45615764e80eca1e2789f559,
     type: 3}
   "tama\xF1o": 40
   home: 5
   enemyTime: 1
+--- !u!114 &534669907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 406609bccaab37046bfc43f9602d253f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radio: 2
+  velocidad: 2
+  tiempoPasado: 0
 --- !u!1 &1262609341
 GameObject:
   m_ObjectHideFlags: 0
