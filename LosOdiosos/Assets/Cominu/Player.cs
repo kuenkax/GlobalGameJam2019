@@ -45,6 +45,14 @@ public class Player : MonoBehaviour {
         mov_dir.z = Input.GetAxis("Vertical");
         rbody.AddForce( mov_dir * mov_force );
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(-Vector3.forward * 100);
+        }
+    }
 }
 
 

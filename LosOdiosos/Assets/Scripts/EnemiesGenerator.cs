@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemiesGenerator : MonoBehaviour
 {
     Vector3 posicionGeneracion;
-    public GameObject prefabEnemigo;
+    public List<GameObject> prefabsEnemigo;
     public float tamaño;
     Vector3 posicion;
     public float home;
@@ -30,7 +30,8 @@ public class EnemiesGenerator : MonoBehaviour
     {
         Posicion();
         posicion.y += 2;
-        Instantiate(prefabEnemigo, posicion, Quaternion.identity);
+        int eType = Random.Range(0, prefabsEnemigo.Count - 1);
+        Instantiate(prefabsEnemigo[eType], posicion, Quaternion.identity);
     }
     void Posicion()
     {
