@@ -10,15 +10,17 @@ public class CameraShake : MonoBehaviour
     Vector3 posicion;
  
     public float tiempo;
-    
+    // Start is called before the first frame update
     void Start()
     {
-        posicionInicial = transform.localPosition;
+       
+        posicionInicial = transform.position;
         posicion = posicionInicial;
+       
+        
+
     }
 
-
-    /*
     // Update is called once per frame
     void Update()
     {
@@ -27,39 +29,39 @@ public class CameraShake : MonoBehaviour
             tiempoPasado = 0;
             StartCoroutine(Shake(tiempo));
         }
-    }*/
-
-
-    public bool shaking;
-
-    public void ShakeIt() {
-        if ( shaking ) return;
-
-        StartCoroutine(Shake());
     }
 
+     float tiempoPasado = 0;
 
-    public IEnumerator Shake()
+    public IEnumerator Shake(float time)
     {
-        shaking = true;
-        while (shaking)
+        while (true)
         {
-            if (Mathf.Round(transform.localPosition.x) == Mathf.Round(posicion.x) && Mathf.Round(transform.localPosition.z) == Mathf.Round(posicion.z))
+            tiempoPasado += Time.deltaTime;
+            if(tiempoPasado >= time)
             {
-                posicion = new Vector3(Random.Range(posicionInicial.x - radio, posicionInicial.x + radio), transform.localPosition.y,
-                        (Random.Range(posicionInicial.z - radio, posicionInicial.z + radio)));
+                transform.position = posicionInicial;
 
-                //print(posicion);
+                break;
+
             }
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, posicion, velocidad);            
+                if (Mathf.Round(transform.position.x) == Mathf.Round(posicion.x) && Mathf.Round(transform.position.z) == Mathf.Round(posicion.z))
+                {
+                    posicion = new Vector3(Random.Range(posicionInicial.x - radio, posicionInicial.x + radio), transform.position.y
+            , (Random.Range(posicionInicial.z - radio, posicionInicial.z + radio)));
+                    print(posicion);
+                }
+                transform.position = Vector3.MoveTowards(transform.position, posicion, velocidad);
+            
 
-            yield return null;
+            yield return null; 
         }
 
-        shaking = false;
-        transform.localPosition = posicionInicial;
+
+
+
     }
-}
+    }
 
 
 
