@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 893340256956346592}
   - component: {fileID: 893340256956346598}
-  - component: {fileID: 893340256956346593}
   m_Layer: 0
   m_Name: gfx (1)
   m_TagString: Untagged
@@ -111,19 +110,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &893340256956346593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893340256956346595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60061c4bec886d9428459353c0d91952, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Camera: {fileID: 0}
 --- !u!1 &893340256977962615
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mov_dir: {x: 0, y: 0, z: 0}
   mov_force: 200
+  sr: {fileID: 0}
 --- !u!54 &893340257434237077
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -281,7 +268,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &893340257434237076
 CapsuleCollider:
@@ -290,7 +277,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893340257434237073}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f20be1de246305b4680df42f42704093, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
