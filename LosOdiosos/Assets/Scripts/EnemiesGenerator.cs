@@ -9,6 +9,8 @@ public class EnemiesGenerator : MonoBehaviour
     public float tamaño;
     Vector3 posicion;
     public float home;
+    public float enemyTime;
+    float ultima;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,11 @@ public class EnemiesGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Generar();
+        if (Time.time >= enemyTime + ultima)
+        {
+            Generar();
+            ultima = Time.time;
+        }
     }
     void Generar()
     {
