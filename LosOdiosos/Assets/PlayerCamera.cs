@@ -32,7 +32,7 @@ public class PlayerCamera : MonoBehaviour {
 
         var mouse_pos = Input.mousePosition;
         var ray = _cam.ScreenPointToRay(mouse_pos);
-        Debug.DrawRay( ray.origin, ray.direction * 100f, Color.red, 0.1f );
+        //Debug.DrawRay( ray.origin, ray.direction * 100f, Color.red, 0.1f );
 
         var closest = Vector3.zero;
         var min_dist = Mathf.Infinity;
@@ -43,7 +43,7 @@ public class PlayerCamera : MonoBehaviour {
                 closest = hits[i].point;
             }
         }
-        Debug.DrawRay( closest, Vector3.up, Color.green, 0.1f );
+        //Debug.DrawRay( closest, Vector3.up, Color.green, 0.1f );
         aim.position = closest;
     }
 
