@@ -8,8 +8,12 @@ public class bulletController : MonoBehaviour
     public float damage;
     public float lifeTime;
 
-    public 
+    public bool MiniGun;
 
+    private void Awake()
+    {
+        
+    }
 
     // Start is called before the first frame update
     void Start()
