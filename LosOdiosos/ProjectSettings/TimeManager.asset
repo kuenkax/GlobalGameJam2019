@@ -6,4 +6,4 @@ TimeManager:
   Fixed Timestep: 0.01
   Maximum Allowed Timestep: 0.5
   m_TimeScale: 1
-  Maximum Particle Timestep: 1
+  Maximum Particle Timestep: 6.72
