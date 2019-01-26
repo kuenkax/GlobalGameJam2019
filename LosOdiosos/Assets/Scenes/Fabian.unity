@@ -294,9 +294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406609bccaab37046bfc43f9602d253f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radio: 2
+  radio: 3
   velocidad: 2
-  tiempoPasado: 0
+  tiempo: 1
 --- !u!1 &1262609341
 GameObject:
   m_ObjectHideFlags: 0
