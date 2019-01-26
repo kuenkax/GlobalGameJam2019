@@ -11,15 +11,19 @@ public class Clock : MonoBehaviour
     void Start()
     {
         //regla de 3
-        velocidad = (30 * 12) / timeDuration;
+        velocidad = (30 * 11.832f) / timeDuration;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time < timeDuration)
+        if (Time.time <= timeDuration)
         {
             transform.Rotate(Vector3.up * velocidad * Time.deltaTime);
+        }
+        else
+        {
+            transform.rotation = Quaternion.identity;
         }
     }
 }
