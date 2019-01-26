@@ -11,6 +11,7 @@ public class EnemiesGenerator : MonoBehaviour
     public float home;
     public float enemyTime;
     float ultima;
+    public GameObject enemyContainer;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,7 @@ public class EnemiesGenerator : MonoBehaviour
         Posicion();
         posicion.y += start_y;
         int eType = Random.Range(0, prefabsEnemigo.Count - 1);
-        Instantiate(prefabsEnemigo[eType], posicion, Quaternion.identity);
+        Instantiate(prefabsEnemigo[eType], posicion, Quaternion.identity,enemyContainer.transform);
     }
     void Posicion()
     {
