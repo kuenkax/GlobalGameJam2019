@@ -14,7 +14,7 @@ public class CameraShake : MonoBehaviour
        
         posicionInicial = transform.position;
         posicion = posicionInicial;
-        StartCoroutine(Shake(5));
+       
         
 
     }
@@ -22,7 +22,10 @@ public class CameraShake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            StartCoroutine(Shake(3));
+        }
     }
 
     public float tiempoPasado = 0;
