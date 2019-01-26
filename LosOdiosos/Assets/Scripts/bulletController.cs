@@ -5,33 +5,33 @@ using UnityEngine;
 public class bulletController : MonoBehaviour
 {
     public float velocity;
-    public float damage;
+    public int damage;
     public float lifeTime;
 
     public bool MiniGun;
 
-    private void Awake()
-    {
-        
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
         Destroy(this.gameObject, lifeTime);
-
     }
 
     // Update is called once per frame
     void Update()
     {
         //Move the bullet
-        transform.Translate(Vector3.forward * velocity * Time.deltaTime);
-        
+        //transform.Translate( transform.forward * velocity * Time.deltaTime );
+        var p = transform.position;
+        p += transform.forward * velocity * Time.deltaTime;
+        transform.position = p;
+
+        Debug.DrawRay(transform.position,transform.forward * 10, Color.yellow );  
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Enemy")
+        {
+            //other.gameObject.health.(Funcion)(damage);
+        }
     }
 }
