@@ -762,7 +762,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329665361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.896082, y: 1, z: 21.5874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -936,6 +936,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767113633}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1779482039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 893340257434237073, guid: 362621c75ddae3048bffea4ebd956970,
+    type: 3}
+  m_PrefabInstance: {fileID: 716411606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1779482040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779482039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a548530ae53e8428bd14a5aa8718eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowTime: 2
+  scale: 0.1
 --- !u!1001 &4216407975072863170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1102,5 +1122,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 503010047832968660, guid: c0137d55430f1e24c8ba2fb78a2f0174, type: 3}
+    - {fileID: 5240712342580238482, guid: c0137d55430f1e24c8ba2fb78a2f0174, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c0137d55430f1e24c8ba2fb78a2f0174, type: 3}
