@@ -80,7 +80,7 @@ public class Clock : MonoBehaviour
         asrc.Play();
 
         var rounds = int.Parse( nRounds.text );
-        nRounds.text = ( rounds++ ).ToString();
+        nRounds.text = ( rounds + 1 ).ToString();
 
         player.GetComponent<Player>().ChangeWeapon();
         yield return new WaitWhile(() => Input.anyKeyDown == false);

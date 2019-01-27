@@ -45,9 +45,11 @@ public class Player : MonoBehaviour {
     }
 
 
+    public GameObject OnDeathObject;
+
     void EstoyMuerto() {
-        Debug.Log("Mierda");
-        Debug.Break();
+        Debug.Log("estoy muerto");
+        if ( OnDeathObject != null ) OnDeathObject.SetActive( true );
     }
 
     public float r = 100f;
