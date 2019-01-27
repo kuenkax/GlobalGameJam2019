@@ -469,6 +469,7 @@ MonoBehaviour:
   "tama\xF1o": 40
   home: 5
   enemyTime: 1
+  enemyContainer: {fileID: 0}
   start_y: 0.3
 --- !u!4 &673212118
 Transform:
@@ -886,7 +887,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329665361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.423531, y: 1, z: 18.925426}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -982,6 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDuration: 120
+  container: {fileID: 0}
 --- !u!1 &1767113633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1127,7 @@ PrefabInstance:
     - target: {fileID: 6140856280052420354, guid: 945746fc45615764e80eca1e2789f559,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4786991494950691142, guid: 945746fc45615764e80eca1e2789f559,
         type: 3}
