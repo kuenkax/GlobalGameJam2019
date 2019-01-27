@@ -13,6 +13,7 @@ public class Clock : MonoBehaviour
     public GameObject player;
     public GameObject weapon;
     public float speed;
+    public GameObject camara;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,10 @@ public class Clock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(timeDuration - timer <= 10)
+        {
+            camara.GetComponent<CameraAnimations>().Alejar();
+        }
         if (timer <= timeDuration)
         {
             timer += Time.deltaTime;
