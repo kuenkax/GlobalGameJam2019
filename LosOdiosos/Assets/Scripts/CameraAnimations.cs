@@ -7,10 +7,13 @@ public class CameraAnimations : MonoBehaviour
     Vector3 posicionNormal;
     public Transform posicionFinal;
     public float tiempo;
-    bool fin;
+    bool inicio;
+    bool final;
+    public GameObject casa;
     // Start is called before the first frame update
     void Start()
     {
+        inicio = true;
         posicionNormal = transform.position;
         transform.position = posicionFinal.position;
     }
@@ -18,20 +21,32 @@ public class CameraAnimations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!fin)
+      if(casa.GetComponent<Animator>().GetBool("appear") == true)
+        {
+            ActivarAnimacion(posicionNormal, posicionFinal.position);
+        }
+        if (inicio)
+        {
+            ActivarAnimacion(posicionFinal.position, posicionNormal);
+        }
+        
+       
+    }
+    void ActivarAnimacion(Vector3 start, Vector3 end)
+    {
+        if (inicio)
         {
             transform.parent.GetComponent<PlayerCamera>().enabled = false;
             print("camara");
-            transform.position = Vector3.Lerp(transform.position, posicionNormal, tiempo);
-            if(Vector3.Distance(transform.position,posicionNormal) <= 1)
+            transform.position = Vector3.Lerp(start, end, tiempo);
+            if (Vector3.Distance(transform.position, end) <= 1)
             {
                 transform.parent.GetComponent<PlayerCamera>().enabled = true;
-                fin = true;
-                print(fin);
+                inicio = false;
+
                 transform.position = posicionNormal;
             }
-            
+
         }
-       
     }
 }
