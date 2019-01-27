@@ -8,6 +8,7 @@ public class Clock : MonoBehaviour
     Quaternion end;
     float velocidad;
     public GameObject container;
+    public Animator house;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class Clock : MonoBehaviour
             {
                 Destroy(child.gameObject);
             }
-
+            house.SetBool("appear", true);
         }
     }
    
