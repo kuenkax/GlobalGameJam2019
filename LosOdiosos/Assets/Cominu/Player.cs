@@ -116,10 +116,10 @@ public class Player : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Enemy")
-        {  
-            var damage = 10; // FIXME: take this from the enemy component
+        {
+            int damage = collision.gameObject.GetComponent<damageScript>().damageInt;
             GetComponent<Health>().SetDamage(damage);
-            collision.gameObject.GetComponent<Rigidbody>().AddForce( -collision.transform.forward * 5000);
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(-collision.transform.forward * 5000);
         }
     }
 
