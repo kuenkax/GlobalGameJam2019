@@ -24,7 +24,7 @@ public class bulletController : MonoBehaviour
         p += transform.forward * velocity * Time.deltaTime;
         transform.position = p;
 
-        Debug.DrawRay(transform.position,transform.forward * 10, Color.yellow );  
+        //Debug.DrawRay(transform.position,transform.forward * 10, Color.yellow );  
     }
 
     public float push_force = 3;
