@@ -53,6 +53,7 @@ public class Clock : MonoBehaviour
         yield return new WaitWhile(() => MovePlayerToPos() > 0.5f);
         player.GetComponent<Rigidbody>().velocity = Vector3.zero;
         house.SetBool("appear", true);
+        player.GetComponent<Player>().ChangeWeapon();
         yield return new WaitWhile(() => Input.anyKeyDown == false);
         house.SetBool("appear",false);
         weapon.SetActive(true);
