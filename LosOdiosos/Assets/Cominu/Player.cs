@@ -8,14 +8,31 @@ public class Player : MonoBehaviour {
     public float mov_force = 100;
     public SpriteRenderer sr;
     public Transform wpn_rotator;
-    
-    public SpriteRenderer sr_wpn;
 
-    public GameObject Bullet;
+    //public SpriteRenderer sr_wpn;
+
+    [System.Serializable]
+    public class Weapon
+    {
+        public string name;
+        public SpriteRenderer wpn;
+        public GameObject bullet;
+        public float time_beween_shots;
+        public bool multishot;
+    }
+
+    public Weapon[] weapons;
+
+    private Weapon current_weapon;
+
+    public Transform weapon_container;
 
     private void OnEnable() {
         rbody = GetComponent<Rigidbody>();
         GetComponent<Health>().OnDeath = EstoyMuerto;
+
+        current_weapon = weapons[1];
+        current_weapon.wpn.gameObject.SetActive(true);
     }
 
 
@@ -38,33 +55,47 @@ public class Player : MonoBehaviour {
             r = -r;
         }
 
-        wpn_rotator.localRotation = Quaternion.Euler( 0, r, 0 );
+        wpn_rotator.localRotation = Quaternion.Euler(0, r, 0);
 
-        while ( r > 360f ) r -= 360f;
-        while ( r < 0f   ) r += 360f;
+        while (r > 360f) r -= 360f;
+        while (r < 0f) r += 360f;
 
-        sr_wpn.flipY = !( r < 90f || r > 270 );
+        current_weapon.wpn.flipY = !(r < 90f || r > 270);
 
-        var wpn_rot = Quaternion.Euler( 0f, 0f, -r );
-        sr_wpn.transform.localRotation = wpn_rot;
-
-        var time_between_shots = 0.1f; // TODO: put this in the weapon prefab
+        var wpn_rot = Quaternion.Euler(0f, 0f, -r);
+        current_weapon.wpn.transform.localRotation = wpn_rot;
 
         var time_since_last_shot = Time.realtimeSinceStartup - last_shot_time;
-        if ( time_since_last_shot > time_between_shots ) {
-            if ( Input.GetMouseButton(0) ) {
+        if (time_since_last_shot > current_weapon.time_beween_shots)
+        {
+            if (Input.GetMouseButton(0))
+            {
                 cam_shake.ShakeIt();
                 last_shot_time = Time.realtimeSinceStartup;
 
-                var aim_dir = Quaternion.Euler(0, r, 0 ) * Vector3.right;
+                var aim_dir = Quaternion.Euler(0, r, 0) * Vector3.right;
+                var aim_dir_1 = Quaternion.Euler(0, r - 5 + Random.value * 4f - 2f, 0) * Vector3.right;
+                var aim_dir_2 = Quaternion.Euler(0, r + 5 + Random.value * 4f - 2f, 0) * Vector3.right;
+                var aim_dir_3 = Quaternion.Euler(0, r - 10 + Random.value * 4f - 2f, 0) * Vector3.right;
+                var aim_dir_4 = Quaternion.Euler(0, r + 10 + Random.value * 4f - 2f, 0) * Vector3.right;
+                var n_bullets = current_weapon.multishot ? 5 : 1;
 
-                //Debug.DrawRay( sr_wpn.transform.position, aim_dir * 1, Color.cyan , 10f );
-                var bullet = Instantiate( Bullet, sr_wpn.transform.position, Quaternion.identity );
-                bullet.transform.LookAt( sr_wpn.transform.position + aim_dir );
+                for (int i = 0; i < n_bullets; i++)
+                {
+                    //Debug.DrawRay( sr_wpn.transform.position, aim_dir * 1, Color.cyan , 10f );
+                    var bullet = Instantiate(current_weapon.bullet, current_weapon.wpn.transform.position, Quaternion.identity);
+                    var d = aim_dir;
+                    if (i == 1) d = aim_dir_1;
+                    else if (i == 2) d = aim_dir_2;
+                    else if (i == 3) d = aim_dir_3;
+                    else if (i == 4) d = aim_dir_4;
+                    bullet.transform.LookAt(current_weapon.wpn.transform.position + d);
+                }
             }
         }
 
-        if ( Input.GetMouseButtonUp(0) ) {
+        if (Input.GetMouseButtonUp(0))
+        {
             cam_shake.shaking = false;
         }
     }
