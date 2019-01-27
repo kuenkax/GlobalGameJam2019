@@ -174,10 +174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 30
-  damage: 20
+  damage: 15
   lifeTime: 0.5
   MiniGun: 0
-  push_force: 6000
+  push_force: 3000
 --- !u!65 &3788201755557549661
 BoxCollider:
   m_ObjectHideFlags: 0

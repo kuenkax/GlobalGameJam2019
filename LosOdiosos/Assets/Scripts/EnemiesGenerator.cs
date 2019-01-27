@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemiesGenerator : MonoBehaviour
 {
+static public EnemiesGenerator i;
     Vector3 posicionGeneracion;
     public List<GameObject> prefabsEnemigo;
     public float tamaño;
@@ -12,10 +13,12 @@ public class EnemiesGenerator : MonoBehaviour
     public float enemyTime;
     float ultima;
     public GameObject enemyContainer;
+    public bool running;
     // Start is called before the first frame update
     void Start()
     {
-        
+    i = this;
+        running = true;
     }
 
     // Update is called once per frame
@@ -23,7 +26,10 @@ public class EnemiesGenerator : MonoBehaviour
     {
         if (Time.time >= enemyTime + ultima)
         {
-            Generar();
+            if(running){
+                Generar();
+           
+            }
             ultima = Time.time;
         }
     }
