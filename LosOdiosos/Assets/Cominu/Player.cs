@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
     Rigidbody rbody;
@@ -10,7 +11,6 @@ public class Player : MonoBehaviour {
     public Transform wpn_rotator;
 
     public AudioSource audio;
-    //public SpriteRenderer sr_wpn;
     public AudioClip miniGunStop;
     [System.Serializable]
     public class Weapon
@@ -31,12 +31,17 @@ public class Player : MonoBehaviour {
 
     public Transform weapon_container;
 
+    public RectTransform health_fg;
+    public Image weapon_img;
+
     private void OnEnable() {
         rbody = GetComponent<Rigidbody>();
         GetComponent<Health>().OnDeath = EstoyMuerto;
 
         current_weapon = weapons[Random.Range(0,weapons.Length-1)];
         current_weapon.wpn.gameObject.SetActive(true);
+
+        weapon_img.sprite = current_weapon.wpn.sprite;
     }
 
 
@@ -49,6 +54,11 @@ public class Player : MonoBehaviour {
     public float r2;
 
     private void Update() {
+        var sd = health_fg.sizeDelta;
+        sd.x = 300f * ( GetComponent<Health>().health / 100f );
+        health_fg.sizeDelta = sd;
+
+
         // flip the character if aiming left/right
         sr.flipX = PlayerCamera.I.aim.transform.position.x < rbody.position.x;
 
