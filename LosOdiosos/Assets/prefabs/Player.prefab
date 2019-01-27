@@ -227,7 +227,7 @@ MonoBehaviour:
     bullet: {fileID: 7339262822772518887, guid: 7bbb54bf560d641b0876d78680fe3c02,
       type: 3}
     time_beween_shots: 0.75
-    multishot: 0
+    multishot: 1
   - name: Gun
     wpn: {fileID: 4991381024623669508}
     bullet: {fileID: 7339262822772518887, guid: c5abd8826f7f34d5792c9b49cbb3fb31,

@@ -31,7 +31,7 @@ public class Player : MonoBehaviour {
         rbody = GetComponent<Rigidbody>();
         GetComponent<Health>().OnDeath = EstoyMuerto;
 
-        current_weapon = weapons[1];
+        current_weapon = weapons[Random.Range(0,weapons.Length-1)];
         current_weapon.wpn.gameObject.SetActive(true);
     }
 
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour {
                 var aim_dir_2 = Quaternion.Euler(0, r + 5 + Random.value * 4f - 2f, 0) * Vector3.right;
                 var aim_dir_3 = Quaternion.Euler(0, r - 10 + Random.value * 4f - 2f, 0) * Vector3.right;
                 var aim_dir_4 = Quaternion.Euler(0, r + 10 + Random.value * 4f - 2f, 0) * Vector3.right;
-                var n_bullets = current_weapon.multishot ? 5 : 1;
+                var n_bullets = current_weapon.multishot ? 8 : 1;
 
                 for (int i = 0; i < n_bullets; i++)
                 {
@@ -116,11 +116,18 @@ public class Player : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Enemy")
-        {  
-            var damage = 10; // FIXME: take this from the enemy component
+        {
+            int damage = collision.gameObject.GetComponent<damageScript>().damageInt;
             GetComponent<Health>().SetDamage(damage);
-            collision.gameObject.GetComponent<Rigidbody>().AddForce( -collision.transform.forward * 5000);
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(-collision.transform.forward * 5000);
         }
+    }
+
+    public void ChangeWeapon()
+    {
+        current_weapon.wpn.gameObject.SetActive(false);
+        current_weapon = weapons[Random.Range(0, weapons.Length - 1)];
+        current_weapon.wpn.gameObject.SetActive(true);
     }
 }
 
