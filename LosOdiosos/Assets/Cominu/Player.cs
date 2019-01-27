@@ -9,8 +9,9 @@ public class Player : MonoBehaviour {
     public SpriteRenderer sr;
     public Transform wpn_rotator;
 
+    public AudioSource audio;
     //public SpriteRenderer sr_wpn;
-
+    public AudioClip miniGunStop;
     [System.Serializable]
     public class Weapon
     {
@@ -19,6 +20,9 @@ public class Player : MonoBehaviour {
         public GameObject bullet;
         public float time_beween_shots;
         public bool multishot;
+        public AudioClip weaponSound;
+        [Range(0.1f, 1f)]
+        public float volume;
     }
 
     public Weapon[] weapons;
@@ -71,6 +75,7 @@ public class Player : MonoBehaviour {
             if (Input.GetMouseButton(0))
             {
                 cam_shake.ShakeIt();
+                audio.PlayOneShot(current_weapon.weaponSound,current_weapon.volume);
                 last_shot_time = Time.realtimeSinceStartup;
 
                 var aim_dir = Quaternion.Euler(0, r, 0) * Vector3.right;
@@ -97,6 +102,10 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonUp(0))
         {
             cam_shake.shaking = false;
+            if(current_weapon.name == "Minigun")
+            {
+                audio.PlayOneShot(miniGunStop, current_weapon.volume);
+            }
         }
     }
 
