@@ -53,11 +53,14 @@ public class Player : MonoBehaviour {
     public float r = 100f;
     public float r2;
 
-    private void Update() {
+    public void updatehealth() {
         var sd = health_fg.sizeDelta;
         sd.x = 300f * ( GetComponent<Health>().health / 100f );
         health_fg.sizeDelta = sd;
+    }
 
+    private void Update() {
+        updatehealth();
 
         // flip the character if aiming left/right
         sr.flipX = PlayerCamera.I.aim.transform.position.x < rbody.position.x;
