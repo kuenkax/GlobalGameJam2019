@@ -331,6 +331,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   pos_lerp_speed: 10
+--- !u!1 &327504085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6199697790681393606, guid: 362621c75ddae3048bffea4ebd956970,
+    type: 3}
+  m_PrefabInstance: {fileID: 716411606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &352412273
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329665361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.9608252, y: 1, z: 17.457043}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -857,9 +863,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419e7555b0ff1c7419b94931e76b319f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDuration: 2
+  timeDuration: 64
   container: {fileID: 352412273}
   house: {fileID: 7834896516760963973}
+  player: {fileID: 1987665331}
+  weapon: {fileID: 327504085}
+  speed: 100
 --- !u!1 &1767113633
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +946,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767113633}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1987665331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 893340257434237073, guid: 362621c75ddae3048bffea4ebd956970,
+    type: 3}
+  m_PrefabInstance: {fileID: 716411606}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4216407975072863170
 PrefabInstance:
   m_ObjectHideFlags: 0
