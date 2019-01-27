@@ -7,6 +7,7 @@ public class Clock : MonoBehaviour
     public float timeDuration;
     Quaternion end;
     float velocidad;
+    public GameObject container;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,11 @@ public class Clock : MonoBehaviour
         else
         {
             transform.rotation = Quaternion.identity;
+            foreach (Transform child in container.transform)
+            {
+                Destroy(child.gameObject);
+            }
+
         }
     }
    
