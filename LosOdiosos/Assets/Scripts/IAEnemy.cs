@@ -28,6 +28,17 @@ public class IAEnemy : MonoBehaviour
     {
         allEnemies.Remove(gameObject);
     }
+    public void Update()
+    {
+        if(player.transform.position.x >= transform.position.x)
+        {
+            transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+        }
+    }
 
 
     public float minDistToPlayer = 1f;

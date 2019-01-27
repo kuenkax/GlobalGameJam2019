@@ -1106,6 +1106,11 @@ PrefabInstance:
       propertyPath: weapons.Array.data[0].time_beween_shots
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 893340257434237079, guid: 362621c75ddae3048bffea4ebd956970,
+        type: 3}
+      propertyPath: OnDeathObject
+      value: 
+      objectReference: {fileID: 2062206370}
     - target: {fileID: 631409827298417448, guid: 362621c75ddae3048bffea4ebd956970,
         type: 3}
       propertyPath: m_Camera
@@ -1113,7 +1118,7 @@ PrefabInstance:
       objectReference: {fileID: 660810425}
     - target: {fileID: 1779482040, guid: 362621c75ddae3048bffea4ebd956970, type: 3}
       propertyPath: slowTime
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 362621c75ddae3048bffea4ebd956970, type: 3}
@@ -1468,7 +1473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329665361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.205217, y: 1.5570097, z: 44.060722}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2026,6 +2031,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2062206370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1306098320, guid: 7c7955eb323bec3439c80a9efa5d3bbf,
+    type: 3}
+  m_PrefabInstance: {fileID: 568675035}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2066216739 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1717334049856987549, guid: 362621c75ddae3048bffea4ebd956970,
