@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
-    public GameObject FadeInObj;
-    public GameObject FadeOutObj;
+
     public GameObject Pause;
     bool EscPressed;
     public KeyCode Esc;
@@ -38,10 +37,9 @@ public class PauseManager : MonoBehaviour
         }
         
     }
-    public void FadeIn() {
-        FadeInObj.SetActive(true);
-    }
-    public void FadeOut() {
-        FadeOutObj.SetActive(true);
+
+    public void ExitGame() {
+        Application.Quit();
+
     }
 }
