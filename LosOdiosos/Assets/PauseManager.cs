@@ -5,16 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
-    public Animator Fade;
-    public GameObject Pause;
+    public GameObject Pause, GameOver;
     bool EscPressed;
     public KeyCode Esc;
-    public int SceneToLoad;
+    private bool muerto;
+    private Scene sceneActual;
 
     // Start is called before the first frame update
     void Start()
     {
-        Fade = GameObject.Find("Fade").GetComponent<Animator>();
+        muerto = false;
+        Scene sceneActual = SceneManager.GetActiveScene();
         EscPressed = false;
     }
 
@@ -37,18 +38,17 @@ public class PauseManager : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
+
+        if (muerto == true && Input.anyKeyDown)
+        {
+            SceneManager.LoadScene(sceneActual.buildIndex);
+        }
         
-    }
-    public void FadeIn() {
-        Fade.SetTrigger("FadeIn");
-    }
-    public void FadeOut() {
-        Fade.SetTrigger("FadeOut");
     }
 
     public void ChangeScene() {
-        Scene sceneLoaded = SceneManager.GetActiveScene();
-        if (sceneLoaded.buildIndex == 0)
+        
+        if (sceneActual.buildIndex == 0)
         {
             SceneManager.LoadScene(1);
         }
@@ -57,6 +57,12 @@ public class PauseManager : MonoBehaviour
             SceneManager.LoadScene(0);
         }
         
+
+    }
+
+    public void GameOverUI() {
+        GameOver.SetActive(true);
+        muerto = true;
 
     }
 }
