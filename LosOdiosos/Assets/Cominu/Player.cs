@@ -79,20 +79,21 @@ public class Player : MonoBehaviour {
         var wpn_rot = Quaternion.Euler(0f, 0f, -r);
         current_weapon.wpn.transform.localRotation = wpn_rot;
 
-        var time_since_last_shot = Time.realtimeSinceStartup - last_shot_time;
-        if (time_since_last_shot > current_weapon.time_beween_shots)
+        elapsed_since_last_shot += Time.deltaTime;
+
+        if (elapsed_since_last_shot > current_weapon.time_beween_shots)
         {
             if (Input.GetMouseButton(0))
             {
                 cam_shake.ShakeIt();
                 audio.PlayOneShot(current_weapon.weaponSound,current_weapon.volume);
-                last_shot_time = Time.realtimeSinceStartup;
+                elapsed_since_last_shot = 0;
 
                 var aim_dir = Quaternion.Euler(0, r, 0) * Vector3.right;
-                var aim_dir_1 = Quaternion.Euler(0, r - 5 + Random.value * 4f - 2f, 0) * Vector3.right;
-                var aim_dir_2 = Quaternion.Euler(0, r + 5 + Random.value * 4f - 2f, 0) * Vector3.right;
-                var aim_dir_3 = Quaternion.Euler(0, r - 10 + Random.value * 4f - 2f, 0) * Vector3.right;
-                var aim_dir_4 = Quaternion.Euler(0, r + 10 + Random.value * 4f - 2f, 0) * Vector3.right;
+                var aim_dir_1 = Quaternion.Euler(0, r - 10 + Random.value * 4f - 2f, 0) * Vector3.right;
+                var aim_dir_2 = Quaternion.Euler(0, r + 10 + Random.value * 4f - 2f, 0) * Vector3.right;
+                var aim_dir_3 = Quaternion.Euler(0, r - 20 + Random.value * 4f - 2f, 0) * Vector3.right;
+                var aim_dir_4 = Quaternion.Euler(0, r + 20 + Random.value * 4f - 2f, 0) * Vector3.right;
                 var n_bullets = current_weapon.multishot ? 8 : 1;
 
                 for (int i = 0; i < n_bullets; i++)
@@ -120,7 +121,7 @@ public class Player : MonoBehaviour {
     }
 
     public CameraShake cam_shake;
-    public float last_shot_time = 0;
+    public float elapsed_since_last_shot = 0;
 
 
     private void FixedUpdate() {
