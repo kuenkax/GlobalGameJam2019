@@ -12,6 +12,8 @@ public class IAEnemy : MonoBehaviour
 
     public float minimumDistance = 1f;
 
+    public int EnemyID;
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -51,7 +53,20 @@ public class IAEnemy : MonoBehaviour
 
         if (dis > minDistToPlayer)
         {
-            nextPos -= transform.position - player.transform.position;
+            if (EnemyID == 0)
+            {
+                nextPos -= transform.position - player.transform.position;
+            }
+            else if (EnemyID == 1)
+            {
+                nextPos -= transform.position - player.transform.position;
+            }
+            else if (EnemyID == 2)
+            {
+                nextPos -= transform.position - player.transform.position;
+            }
+
+            
         }
         GetComponent<Rigidbody>().AddForce(nextPos * mov_force);
     }

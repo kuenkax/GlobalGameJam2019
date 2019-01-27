@@ -5,16 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
-    public Animator Fade;
+    public GameObject FadeInObj;
+    public GameObject FadeOutObj;
     public GameObject Pause;
     bool EscPressed;
     public KeyCode Esc;
-    public int SceneToLoad;
 
     // Start is called before the first frame update
     void Start()
     {
-        Fade = GameObject.Find("Fade").GetComponent<Animator>();
         EscPressed = false;
     }
 
@@ -40,23 +39,9 @@ public class PauseManager : MonoBehaviour
         
     }
     public void FadeIn() {
-        Fade.SetTrigger("FadeIn");
+        FadeInObj.SetActive(true);
     }
     public void FadeOut() {
-        Fade.SetTrigger("FadeOut");
-    }
-
-    public void ChangeScene() {
-        Scene sceneLoaded = SceneManager.GetActiveScene();
-        if (sceneLoaded.buildIndex == 0)
-        {
-            SceneManager.LoadScene(1);
-        }
-        else
-        {
-            SceneManager.LoadScene(0);
-        }
-        
-
+        FadeOutObj.SetActive(true);
     }
 }
