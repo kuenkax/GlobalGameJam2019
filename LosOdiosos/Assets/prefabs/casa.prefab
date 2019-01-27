@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4601140888833402612}
   - component: {fileID: 5240712342580238482}
   - component: {fileID: 503010047832968660}
+  - component: {fileID: 7834896516760963973}
   m_Layer: 10
   m_Name: casa
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7834896516760963972}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0.00000028088027}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999998}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -179.99998, z: 0}
 --- !u!33 &4820921586207542992
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -108,3 +109,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 28.999998, y: 22.999998, z: 24.999998}
   m_Center: {x: 1.4999989, y: 11.499997, z: -2.5000002}
+--- !u!95 &7834896516760963973
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7834896516760963972}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3617eb1e2ec922643b05e184be295e5b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
