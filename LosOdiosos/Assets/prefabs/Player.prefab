@@ -216,6 +216,8 @@ MonoBehaviour:
   mov_force: 300
   sr: {fileID: 893340256977962613}
   wpn_rotator: {fileID: 3850995867599679507}
+  audio: {fileID: 0}
+  miniGunStop: {fileID: 0}
   weapons:
   - name: Minigun
     wpn: {fileID: 2787706651836269993}
@@ -223,18 +225,24 @@ MonoBehaviour:
       type: 3}
     time_beween_shots: 0.1
     multishot: 0
+    weaponSound: {fileID: 0}
+    volume: 0
   - name: Shotgun
     wpn: {fileID: 4132956462950390715}
     bullet: {fileID: 7339262822772518887, guid: 7bbb54bf560d641b0876d78680fe3c02,
       type: 3}
     time_beween_shots: 0.75
     multishot: 1
+    weaponSound: {fileID: 0}
+    volume: 0
   - name: Gun
     wpn: {fileID: 4991381024623669508}
     bullet: {fileID: 7339262822772518887, guid: c5abd8826f7f34d5792c9b49cbb3fb31,
       type: 3}
     time_beween_shots: 0.2
     multishot: 0
+    weaponSound: {fileID: 0}
+    volume: 0
   weapon_container: {fileID: 0}
   r: 100
   r2: 0
@@ -392,6 +400,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4789280774358121149, guid: 8846d3999afb74e55b3e1c09bd24175d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 349584101ba3857449f4d1fb36003c86,
+        type: 3}
     - target: {fileID: 2904354848442788449, guid: 8846d3999afb74e55b3e1c09bd24175d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -447,12 +461,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4789280774358121149, guid: 8846d3999afb74e55b3e1c09bd24175d,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 349584101ba3857449f4d1fb36003c86,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8846d3999afb74e55b3e1c09bd24175d, type: 3}
 --- !u!4 &3421702988584264152 stripped
@@ -570,6 +578,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4789280774358121149, guid: 8846d3999afb74e55b3e1c09bd24175d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1121108989ac7e54496664bfb7fa68b3,
+        type: 3}
     - target: {fileID: 2904354848442788449, guid: 8846d3999afb74e55b3e1c09bd24175d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -625,12 +639,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4789280774358121149, guid: 8846d3999afb74e55b3e1c09bd24175d,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1121108989ac7e54496664bfb7fa68b3,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8846d3999afb74e55b3e1c09bd24175d, type: 3}
 --- !u!4 &6008804815901330279 stripped
