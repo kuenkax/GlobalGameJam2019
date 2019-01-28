@@ -34,11 +34,12 @@ public class Player : MonoBehaviour {
     public RectTransform health_fg;
     public Image weapon_img;
 
-    private void OnEnable() {
+    private void Start()
+    {
         rbody = GetComponent<Rigidbody>();
         GetComponent<Health>().OnDeath = EstoyMuerto;
 
-        current_weapon = weapons[Random.Range(0,weapons.Length-1)];
+        current_weapon = weapons[Random.Range(0, weapons.Length)];
         current_weapon.wpn.gameObject.SetActive(true);
 
         weapon_img.sprite = current_weapon.wpn.sprite;
