@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Cominu/Cominu.unity
     guid: 1cacef40c9ccf2b4f9164d35ade0a87b
+  - enabled: 1
+    path: Assets/Eufrasio/Cominu 1.unity
+    guid: 172cc06fe1d96c04594676072dd3e207
   m_configObjects: {}

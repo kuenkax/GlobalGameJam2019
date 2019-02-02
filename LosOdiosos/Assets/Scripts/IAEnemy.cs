@@ -13,6 +13,7 @@ public class IAEnemy : MonoBehaviour
     public float minimumDistance = 1f;
 
     public int EnemyID;
+    public bool enemigo2;
 
     private void Start()
     {

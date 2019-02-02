@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4732501008223436089}
   - component: {fileID: 4724573585627351906}
   - component: {fileID: 5062890016318389857}
+  - component: {fileID: 342293514968606910}
   m_Layer: 10
   m_Name: gfx
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4786991494950691142}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4724573585627351906
 SpriteRenderer:
@@ -68,7 +69,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 787742651
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: c50b90c17161dcc47b774e5bc72d50cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -93,6 +94,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 0}
+--- !u!95 &342293514968606910
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531314505491644628}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 57bfba4497781d0469e64e9f7188a22b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6140856280052420354
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,8 +145,8 @@ Transform:
   m_LocalPosition: {x: -2.1, y: 1.568, z: -0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7059298037725647793}
   - {fileID: 4732501008223436089}
+  - {fileID: 7059298037725647793}
   - {fileID: 1004170309862794960}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -173,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 196aa7e83604e4d12ae6b46fa0ef8669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 60
+  health: 150
 --- !u!114 &3931531283786777864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,9 +206,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6297195e2f4b4581bf3a18992b81ce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mov_force: 10
+  mov_force: 12
   minimumDistance: 2
   EnemyID: 2
+  enemigo2: 0
   minDistToPlayer: 1
 --- !u!114 &3671859272930595518
 MonoBehaviour:
@@ -202,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f26a25f07992143b8b6119b2d89e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageInt: 30
+  damageInt: 50
 --- !u!1 &6807328505140093464
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +324,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4786991494950691142}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8085657405788986338
 MeshFilter:

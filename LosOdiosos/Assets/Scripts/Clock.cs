@@ -16,6 +16,7 @@ public class Clock : MonoBehaviour
     public float speed;
     bool finished;
     public AudioClip[] music;
+    public Transform segundos;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +43,8 @@ public class Clock : MonoBehaviour
         {
             timer += Time.deltaTime;
             transform.Rotate(Vector3.up * velocidad * Time.deltaTime);
+            segundos.Rotate(Vector3.up * (velocidad*11.5f) * Time.deltaTime);
+
         }
         else
         {

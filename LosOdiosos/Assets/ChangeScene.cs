@@ -11,7 +11,7 @@ public class ChangeScene : MonoBehaviour
         Scene SceneActual= SceneManager.GetActiveScene();
         if (SceneActual.buildIndex == 0)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
         else
         {
