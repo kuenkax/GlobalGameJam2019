@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     public SpriteRenderer sr;
     public Transform wpn_rotator;
 
+    public Animator playerAnimator;
     public AudioSource audio;
     public AudioClip miniGunStop;
     [System.Serializable]
@@ -63,6 +64,15 @@ public class Player : MonoBehaviour {
     }
 
     private void Update() {
+        if (Input.GetAxisRaw("Horizontal") != 0f|| Input.GetAxisRaw("Vertical") != 0f)
+        {
+            playerAnimator.Play("Quieto", 0);
+        }
+        else
+        {
+            playerAnimator.Play("Andando", 0);
+
+        }
         updatehealth();
 
         // flip the character if aiming left/right

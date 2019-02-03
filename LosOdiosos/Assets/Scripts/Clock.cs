@@ -11,6 +11,8 @@ public class Clock : MonoBehaviour
     float velocidad;
     public GameObject container;
     public Animator house;
+    public Animator suelo;
+
     public GameObject player;
     public GameObject weapon;
     public float speed;
@@ -50,6 +52,8 @@ public class Clock : MonoBehaviour
         {
             if(!finished){
                 finished = true;
+                suelo.Play("Fin", 0);
+
                 transform.rotation = Quaternion.identity;
                 foreach (Transform child in container.transform)
                 {
@@ -87,6 +91,7 @@ public class Clock : MonoBehaviour
 
         player.GetComponent<Player>().ChangeWeapon();
         yield return new WaitWhile(() => Input.anyKeyDown == false);
+        suelo.Play("Giro", 0);
         house.SetBool("appear",false);
 
         var clip = music[Random.Range(0, music.Length)];
