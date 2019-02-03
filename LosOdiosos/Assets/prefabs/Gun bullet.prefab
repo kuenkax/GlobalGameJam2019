@@ -4901,7 +4901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 30
-  damage: 30
+  damage: 60
   lifeTime: 10.11
   MiniGun: 0
   push_force: 10000
